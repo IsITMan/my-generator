@@ -7,6 +7,15 @@
     <!--加载配置文件，为下面读取数据库信息准备-->
     <context id="Mysql" targetRuntime="MyBatis3Simple" >
 
+        <!-- 生成swagger注解-->
+        <plugin type="com.liveneo.sgplatform.plugins.GeneratorSwagger2Doc">
+            <property name="apiModelAnnotationPackage" value="io.swagger.annotations.ApiModel"/>
+            <property name="apiModelPropertyAnnotationPackage" value="io.swagger.annotations.ApiModelProperty"/>
+        </plugin>
+
+        <!--生成set返回，方便链式调用-->
+        <!--<plugin type="com.liveneo.sgplatform.plugins.ExtendEntitySetter"/>-->
+
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
             <property name="mappers" value="com.mydemo.generator.core.support.MyMapper" />
             <!--caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true-->
